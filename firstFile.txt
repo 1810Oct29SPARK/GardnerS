@@ -1,0 +1,3 @@
+What's Up, Dude?
+
+Nothing much, Checking my Knowledge of git without notes.
