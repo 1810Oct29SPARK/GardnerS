@@ -1,0 +1,25 @@
+Stewart Gardner
+
+Spark Project Proposal
+
+Theme:
+    Famous Painters (Maybe Renaissance)
+
+API:
+    Wikipedia
+
+Example:
+    https://en.wikipedia.org/w/api.php?action=query&format=json&prop=categories%7Cimages&titles=Caravaggio
+    This will grab the JSON of Carvaggio. It also shows links to images within the article and the catagories it belongs to.
+    The Categories thing is because I want to use other Renaissance painters and randomly select them.   
+
+Use Cases:
+    You can sign up for an email about painters.
+    You can search for different painters and view their art.
+    You can select a random painter and have their art show up.
+    You can look at paintings by century or decade or something.
+    You can login and then have a history of the paintings you like.
+    You can like paintings.
+    You can view history of the painter.
+    You can view history of the time the painting was made in.
+    You can click a link to a printshop website.
