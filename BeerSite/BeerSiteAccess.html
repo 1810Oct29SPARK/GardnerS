@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beer Site Access</title>
+    <link href="https://fonts.googleapis.com/css?family=Ewert|Rubik:900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="BeerSiteStyle.css" />
+    <link rel="icon" href="BeerSiteImages/BeerIconFav.png"/>
+    <style> h5 {color:firebrick;} #dryActivities {background-color:khaki;} #dryActivities * {margin:0;} </style>
+</head>
+<body>
+    <header>
+        <h1><a href="BeerSiteHome.html" class="disabled">Stewart's Beer Website</a></h1>
+    </header>
+    <nav class="flexContainer">
+        <h3><a href="BeerSiteHome.html" class="disabled">Home</a></h3>
+        <h3><a href="BeerSiteMenu.html" class="disabled">Menu</a></h3>
+
+    </nav>
+    <div class="flexContainer" id="legalDrinkDiv">
+        <fieldset>
+            <legend>Are you old enough to drink?</legend>
+            <form method="POST">
+                <input type="submit" id="above21" name="ageConfirmation" value="Let Me In" formaction="BeerSiteHome.html"/>
+                <label for="above21">I am at least 21 years old.</label>
+                <br/>
+                <input type="submit" id="below21" name="ageConf irmation" value="I'll Be Back" formtarget="_self"/>
+                <label for="below21">I'm still too young.</label>
+            </form>
+        </fieldset>
+    </div>
+    <div id="dryActivities">
+        <h5>Things to do if you can't drink.</h5>
+        <ul>
+            <li>Play a Board Game</li>
+            <li>Read a Book</li>
+            <li>Climb a Tree</li>
+            <li>Take a Walk</li>
+        </ul>
+    </div>
+    <footer>
+        <p>Drink Responsibly.</p>
+    </footer>
+</body>
+</html>

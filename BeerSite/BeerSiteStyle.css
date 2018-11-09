@@ -1,0 +1,79 @@
+html body {
+    margin:0;
+    background-color:black;
+    font-family:"Rubik", sans-serif;
+}
+.flexContainer {
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+    align-items:center;
+}
+nav * {
+    margin:auto;
+    flex:0 0 20px;
+}
+nav a , header a {
+    text-decoration:none;
+    color:blue;
+}
+nav a:hover , header a:hover {
+    color:black;
+}
+section > * {
+    flex:0 0 400px;
+}
+aside {
+    background-color:greenyellow;
+    margin:10px;
+}
+article {
+    background-color:blueviolet;
+    margin:10px;
+}
+header {
+    background-color:orchid;
+    font-family:"Ewert", Georgia, serif;
+}
+h1 {
+    margin:0;
+    text-align:center;
+}
+nav {
+    background-color:tomato;
+    height:25px;
+}
+section {
+    background-color:aqua;
+}
+footer {
+    background-color:sienna;
+}
+#legalDrinkDiv {
+    background-color:wheat;
+}
+input {
+    margin:10px;
+}
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+fieldset {
+    border: solid 2px honeydew;
+    border-radius:3px;
+    margin: 20px;
+}
+h2 {
+    text-align:center;
+}
+#iQ {
+    color:white;
+}
+img {
+    width:100%;
+}
+p {
+    margin:0;
+    text-align:center;
+}
