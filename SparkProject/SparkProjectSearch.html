@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search - SBG's Art-Site</title>
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Cormorant" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="SparkProjectPrototype.css"/>
+    <link rel="icon" type="image" href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Durer_Young_Hare.jpg"/>
+    <script src="SparkProjectScript.js"></script>
+</head>
+<body onload="getToken()">
+    <header><h1 class="header"><a href="SparkProjectHome.html">SBG's Art-Site</a></h1></header>
+    <nav class="flexSemantic">
+        <h2><a href="SparkProjectHome.html">Home</a></h2>
+        <h2><a href="SparkProjectGallery.html">Gallery</a></h2>
+        <h2><a href="SparkProjectAcknowledgements.html">Acknowledgements</a></h2>
+    </nav>
+    <div class="header searchHeader">
+        <!-- searchbar -->
+        <h1>Search for Artists</h1>
+        <input type="text" placeholder="Salvador Dali" id="searchTerm"/>
+        <input type="submit" value="Search" onclick="wikiCall(document.getElementById('searchTerm').value)">
+        <input type="submit" value="Random Artist" onclick="randomArtist()"/>
+    </div>
+    <div class="artistDiv">
+            <!-- artist div -->
+            <div class="artistInfo">
+                <!-- article info artist bio-->
+                <p class="largeText" id="artistName">Salvador Dalí</p>
+                <p class="artistBio" id="artistDescription">Salvador Domingo Felipe Jacinto Dalí i Domènech, 1st Marquis of Dalí de Púbol, known professionally as Salvador Dalí, was a prominent Spanish surrealist born in Figueres, Catalonia, Spain. Dalí was a skilled draftsman, best known for the striking and bizarre images in his surrealist work. His painterly skills are often attributed to the influence of Renaissance masters. His best-known work, The Persistence of Memory, was completed in August 1931. Dalí's expansive artistic repertoire included film, sculpture, and photography, at times in collaboration with a range of artists in a variety of media. Dalí attributed his "love of everything that is gilded and excessive, my passion for luxury and my love of oriental clothes" to an "Arab lineage", claiming that his ancestors were descendants of the Moors. Dalí was highly imaginative, and also enjoyed indulging in unusual and grandiose behavior. To the dismay of those who held his work in high regard, and to the irritation of his critics, his eccentric manner and attention-grabbing public actions sometimes drew more attention than his artwork.</p>
+                <p><a href="https://www.allposters.com/-st/Salvador-Dali-Posters_c23675_.htm" id="link" target="blank">Search for prints by Salvador Dalí</a></p>
+                <p><a href="" id="artsyLink" target="blank"></a></p>
+            </div>
+            <div class="artistPic">
+                <!-- aside art -->
+                <img id="frame" src="http://www.dalipaintings.com/images/paintings/the-poetry-of-america.jpg" alt="I dunno. A picture, I guess." title="Poetry of America">
+            </div>
+        </div>
+    <footer class="flexSemantic">
+        <h3><a href="SparkProjectHome.html">Home</a></h3>
+        <h3><a href="SparkProjectGallery.html">Gallery</a></h3>
+        <h3><a href="SparkProjectAcknowledgements.html">Acknowledgements</a></h3>
+    </footer>
+</body>
+</html>

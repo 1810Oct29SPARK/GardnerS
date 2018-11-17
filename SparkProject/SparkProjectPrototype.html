@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search - SBG's Art-Site</title>
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Cormorant" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="SparkProjectPrototype.css"/>
+    <script src="SparkProjectPrototype.js"></script>
+</head>
+<body onload=getToken()>
+    <header></header>
+    <nav></nav>
+    <div>
+        <input placeholder="Search for an Artist" id="searchTerm"/>
+        <button id="searchBtn" onclick=artsyCall(searchTerm.value) onclick=wikiCall(searchTerm.value)>Search</button> <!---wikiCall(searchTerm.value)-->
+    </div>
+    <div id="museumDiv">
+        <div id="frameDiv">
+            <img id="frame"/>
+        </div>
+        <div id="infoDiv">
+            <h2 id="artistName"></h2>
+            <p id="artistDescription"></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - SBG's Art-Site</title>
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro|Cormorant" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="SparkProjectPrototype.css"/>
+    <link rel="icon" type="image" href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Durer_Young_Hare.jpg"/>
+    <script src="SparkProjectScript.js"></script>
+</head>
+<body>
+    <header><h1 class="header"><a href="SparkProjectHome.html">SBG's Art-Site</a></h1></header>
+    <nav class="flexSemantic">
+        <h2><a href="SparkProjectGallery.html">Gallery</a></h2>
+        <h2><a href="SparkProjectSearch.html">Search</a></h2>
+        <h2><a href="SparkProjectAcknowledgements.html">Acknowledgements</a></h2>
+    </nav>
+    <div class="centerElement">
+        <h1 class="header">The Importance Of Art</h1>
+    </div>
+    <div class="centerElement">
+        <!-- Paragraph about why art is important -->
+        <p></p>
+    </div>
+    <div class="centerElement">
+        <!-- dynamic quote about art's importance -->
+        <p id="quoteBody"></p>
+        <p id="quoteAuthor"></p>
+    </div>
+    <div class="centerElement">
+        <!-- email sign up -->
+        <p class="largeText">Learn more about art, artists, how art influences us, and other topics from the world of art by signing up for our weekly Email.</p>
+        <form method="POST" action="SparkProjectAcknowledgements.html">
+            <fieldset>
+                <legend>Mailing List Sign Up</legend>
+                <input type="text" name="Name" required placeholder="Full Name"/>
+                <br/>
+                <input type="email" name="E-Mail" required placeholder="E-Mail"/>
+                <br/>
+                <input type="submit" onclick=signUp();/>
+            </fieldset>
+        </form>
+    </div>
+    <footer class="flexSemantic">
+        <h3><a href="SparkProjectGallery.html">Gallery</a></h3>
+        <h3><a href="SparkProjectSearch.html">Search</a></h3>
+        <h3><a href="SparkProjectAcknowledgements.html">Acknowledgements</a></h3>
+    </footer>
+</body>
+</html>
