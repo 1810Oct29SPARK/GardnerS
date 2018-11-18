@@ -1,3 +1,4 @@
+//the below is for the gallery page
 function galleryPic(author){
     let img = document.getElementById("pic"+author);
     let art = {
@@ -44,8 +45,7 @@ function galleryPic(author){
 //the above is for the gallery page.
 //the below is for the search page.
 const endPointWiki = "https://en.wikipedia.org/w/api.php?&origin=*&action=query&format=json&prop=extracts%7Cimages&exsentences=9&exintro=1&explaintext=1&imlimit=20&redirects=1&titles=";
-const endPointWikiImages = "https://en.wikipedia.org/w/api.php?origin=*&action=query&prop=imageinfo&iiprop=url&format=json&titles="
-
+const endPointWikiImages = "https://en.wikipedia.org/w/api.php?origin=*&action=query&format=json&prop=imageinfo&iiprop=url&titles="
 //this function will call for the artist info from wikipedia.
 function wikiCall(artist){
     let name = document.getElementById("artistName");
@@ -58,7 +58,7 @@ function wikiCall(artist){
     })
     .then(function(data) {  
         let artistDescription = Object.values(data.query.pages)[0].extract;
-        if (artistDescription.includes("most commonly refers to")||artistDescription.includes("most often refers to")){
+        if (artistDescription.includes("refer to")){
             name.innerHTML = "Uh Oh. You need to be more specific.";
             desc.innerHTML = "It seems like you searched for too general of a term. If you are looking for a specific artist try to include their full name.";
             frame.setAttribute("src", "http://esq.h-cdn.co/assets/17/07/1600x800/landscape-1487277724-lead.jpg");
@@ -72,6 +72,7 @@ function wikiCall(artist){
             link.setAttribute("href", "https://www.allposters.com/gallery?txtSearch="+artistName)
             let wikiImages = Object.values(data.query.pages)[0].images;
             wikiCycle(wikiImages);
+            artsyCall(artist);
         }
     })
     .catch(function(error){
@@ -86,10 +87,16 @@ function wikiCall(artist){
 function wikiCycle(imgObject){
     let frame = document.getElementById("frame");
     let random = Math.floor(Math.random()*imgObject.length);
-    if (imgObject.length<3){
-        return null;
+    if (imgObject.length<6){
+        //if there aren't very many pics on a page let's set the image to what artsy has.
+        noWiki(document.getElementById("artistName").innerText);
     }
-    else if (imgObject[random].title=="File:Blue pencil.svg" || 
+    else if (
+        //wikipedia returns at max 20 images used on the page.
+        //however these can be any image used on the page.
+        //often the images are not useful for my purposes.
+        //these are the icons wikipedia uses. I know I didn't get all of them.
+        imgObject[random].title=="File:Blue pencil.svg" || 
         imgObject[random].title=="File:Wikiquote-logo.svg" || 
         imgObject[random].title=="File:Searchtool.svg" ||
         imgObject[random].title=="File:Commons-logo.svg" ||
@@ -154,14 +161,14 @@ function randomArtist(){
 const endPointArtsy = "https://api.artsy.net/api/artists/";
 const loginForToken = "https://api.artsy.net/api/tokens/xapp_token?client_id=96eda4509413b44cb867&client_secret=f72307e4f63dc776ba338cc26af437be";
 var token;
-var stuff;
 function getToken(){
-    fetch(loginForToken, {"method":"POST"})
+    fetch(loginForToken, {method:"POST"})
     .then(function (response){
         return response.json();
     })
     .then(function(data){
         token = data.token;
+        console.log(token);
     })
     .catch(function(error){
         console.log(error);
@@ -181,15 +188,68 @@ function artsyCall(artist){
     })
     .then(function(data){
         //Change Stuff Here Boyo.
+        let similarArtists = data["_links"].similar_artists.href;
+        otherArtsyCall(similarArtists);
     })
     .catch(function(error){
-        console.log(error, "Damn");
+        console.log(error);
     })
 }
-
+function otherArtsyCall(artistsUrl){
+    let artsyLink = document.getElementById("artsyLink");
+    fetch(artistsUrl, {
+        method:"GET",
+        headers:{
+            "X-Xapp-Token":token
+        }
+    })
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        let artistsArray = data["_embedded"].artists;
+        artsyLink.innerHTML = "";
+        for (let i = 0; i<artistsArray.length; i++){
+            let paragraph = document.createElement("p");
+            let entry = document.createElement("a");
+            entry.appendChild(document.createTextNode("Learn about "+artistsArray[i].name));
+            entry.setAttribute("target", "_blank");
+            entry.setAttribute("href", artistsArray[i]["_links"].permalink.href);
+            paragraph.appendChild(entry);
+            artsyLink.appendChild(paragraph);
+        }
+    })
+    .catch(function(error){
+        artsyLink.innerHTML = "";
+        console.log(error);
+    })
+}
+function noWiki(artist){
+    let frame = document.getElementById("frame");
+    artist = artist.replace(/\s/g, '-').toLowerCase();
+    fetch(endPointArtsy+artist, {
+        method:"GET",
+        headers:{
+            "X-Xapp-Token":token
+        }
+    })
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        let picLink = data["_links"].image.href;
+        picLink = picLink.replace("{image_version}","large");
+        frame.setAttribute("src",picLink);
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+}
 //the above is for the search page.
 //the below is for the home page
 function signUp(){
     let panel = document.getElementById("panel");
     panel.style.display = block;
 }
+//links
+//https://www.artsy.net/auctions
