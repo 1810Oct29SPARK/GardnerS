@@ -26,19 +26,22 @@
         <p id="quoteBody"></p>
         <p id="quoteAuthor"></p>
     </div>
-    <div class="centerElement">
+    <div class="center50">
         <!-- email sign up -->
         <p class="largeText">Learn more about art, artists, how art influences us, and other topics from the world of art by signing up for our weekly Email.</p>
-        <form method="POST" action="SparkProjectAcknowledgements.html">
+        <form method="POST" action="SparkProjectHome.html" onsubmit="signUp()">
             <fieldset>
-                <legend>Mailing List Sign Up</legend>
-                <input type="text" name="Name" required placeholder="Full Name"/>
+                <legend class="largeText">Mailing List Sign Up</legend>
+                <input type="text" name="Name" required placeholder="Full Name" autocomplete="off"/>
                 <br/>
-                <input type="email" name="E-Mail" required placeholder="E-Mail"/>
+                <input type="email" name="E-Mail" required placeholder="E-Mail" autocomplete="off"/>
                 <br/>
-                <input type="submit" onclick=signUp();/>
+                <input type="submit" id="submitInput"/>
             </fieldset>
         </form>
+        <div id="panel" class="center50">
+            <!-- SignUp-->
+        </div>
     </div>
     <footer class="flexSemantic">
         <h3><a href="SparkProjectGallery.html">Gallery</a></h3>

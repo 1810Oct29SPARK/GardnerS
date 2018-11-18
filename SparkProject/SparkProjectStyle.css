@@ -70,11 +70,19 @@ p {
 .searchHeader {
     margin-bottom:50px;
 }
-#panel {
-    display:none;
+.center50 {
+    min-width:200px;
+    width:50%;
+    margin:auto;
 }
-
-
+legend {
+    margin:0 auto;
+}
+fieldset input {
+    width:100%;
+    margin:2px auto;
+    text-align:center;
+}
 
 /* font-family: 'Anonymous Pro', monospace;
 font-family: 'Cormorant', serif; */

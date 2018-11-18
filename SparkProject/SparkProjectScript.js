@@ -67,6 +67,7 @@ function wikiCall(artist){
         else {
             let artistName = Object.values(data.query.pages)[0].title;
             name.innerHTML = artistName;
+            name.setAttribute("href","https://en.wikipedia.org/wiki/"+artistName);
             desc.innerHTML = descriptionCollapse(artistDescription);
             link.innerHTML = "Search for prints by "+artistName;
             link.setAttribute("href", "https://www.allposters.com/gallery?txtSearch="+artistName)
@@ -77,7 +78,7 @@ function wikiCall(artist){
     })
     .catch(function(error){
         name.innerHTML = "Oops, something went wrong."
-        desc.innerHTML = "It seems like there was a problem somewhere down the pipe that led to your search not showing anything. Hopefully there was only a small error and everything will be working soon enough. In the mean time, check that you entered everything correctly. Then try again."
+        desc.innerHTML = "It seems like there was a problem somewhere down the pipe that led to your search not showing anything. Hopefully there was only a small error and everything will be working soon enough. In the mean time, check that you entered everything correctly, then try again."
         frame.setAttribute("src", "http://esq.h-cdn.co/assets/17/07/1600x800/landscape-1487277724-lead.jpg");
         link.innerText = "";
         console.log(error);
@@ -212,7 +213,7 @@ function otherArtsyCall(artistsUrl){
         for (let i = 0; i<artistsArray.length; i++){
             let paragraph = document.createElement("p");
             let entry = document.createElement("a");
-            entry.appendChild(document.createTextNode("Learn about "+artistsArray[i].name));
+            entry.appendChild(document.createTextNode("Learn about "+artistsArray[i].name+", a similar artist"));
             entry.setAttribute("target", "_blank");
             entry.setAttribute("href", artistsArray[i]["_links"].permalink.href);
             paragraph.appendChild(entry);
@@ -249,7 +250,21 @@ function noWiki(artist){
 //the below is for the home page
 function signUp(){
     let panel = document.getElementById("panel");
-    panel.style.display = block;
+    let para = document.createElement("p");
+    if(para){para.remove();}
+    para.setAttribute("class", "largeText");
+    para.innerText = "Thank you for signing up for our weekly Email. We will make sure to provide interesting reading material without cluttering your inbox.";
+    panel.appendChild(para);
 }
 //links
 //https://www.artsy.net/auctions
+
+
+// $("input").keypress(function(e) {
+//     var neu = $(".value").val();
+//       if(e.which == 13) {
+//         $(".crate").empty();
+//         check(neu);
+//         setTimeout(build, 500);
+//     }
+// });
