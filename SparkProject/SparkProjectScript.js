@@ -154,7 +154,7 @@ function randomArtist(){
     let potential =["Rembrandt","Norman Rockwell","Albrecht Durer","Edward Hopper","Leonardo da Vinci","Rapheal","Titian","El Greco","Francisco de Goya","Edouard Manet","Edgar Degas","Claude Monet","Henri Rousseau","Paul Gauguin","Edvard Munch","Gustav Klimt","Henri Matisse","Pablo Picasso","Diego Rivera","Georgia O’Keeffe","Georges Seurat","Vincent van Gogh","Frida Kahlo","René Magritte","Ansel Adams","M. C. Escher"];
     let index = Math.floor(Math.random()*potential.length);
     placeholder.setAttribute("placeholder", potential[index]);
-    placeholder.setAttribute("value", potential[index]);
+    placeholder.value = potential[index];
     wikiCall(potential[index]);
 
 }
@@ -249,22 +249,33 @@ function noWiki(artist){
 //the above is for the search page.
 //the below is for the home page
 function signUp(){
-    let panel = document.getElementById("panel");
-    let para = document.createElement("p");
-    if(para){para.remove();}
-    para.setAttribute("class", "largeText");
-    para.innerText = "Thank you for signing up for our weekly Email. We will make sure to provide interesting reading material without cluttering your inbox.";
-    panel.appendChild(para);
+    let signedUp = document.getElementById("signedUp");
+    if(signedUp){signedUp.remove();}
+    let name = document.getElementById("nameInput").value.toLowerCase();
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+    let email = document.getElementById("emailInput").value;
+    if(name.includes(" ") && email.includes("@") && email.includes(".")){
+        let panel = document.getElementById("panel");
+        let para = document.createElement("p");
+        para.setAttribute("id", "signedUp");
+        para.setAttribute("class", "largeText");
+        name = name.split(" ")[0];
+        para.innerText = name+", thanks for signing up. We will make sure to provide interesting reading material without cluttering your inbox.";
+        panel.appendChild(para);
+    }
 }
-//links
-//https://www.artsy.net/auctions
-
-
-// $("input").keypress(function(e) {
-//     var neu = $(".value").val();
-//       if(e.which == 13) {
-//         $(".crate").empty();
-//         check(neu);
-//         setTimeout(build, 500);
-//     }
-// });
+function quotePull(){
+    let quoteBody = document.getElementById("quoteBody");
+    let quoteAuthor = document.getElementById("quoteAuthor");
+    let quotes = [
+        {"body":'"The Arts and Sciences, essential to the prosperity of the State and to the ornament of human life, have a primary claim to the encouragement of every lover of his country and mankind."',"author":"George Washington"},
+        {"body":'"Art is a nation\'s most precious heritage. For it is in our works of art that we reveal to ourselves and to others the inner vision which guides us as a nation. And where there is no vision, the people perish."',"author":"Lyndon B. Johnson"},
+        {"body":'"Aeschylus and Plato are remembered today long after the triumphs of Imperial Athens are gone. Dante outlived the ambitions of thirteenth century Florence. Goethe stands serenely above the politics of Germany, and I am certain that after the dust of centuries has passed over cities, we too will be remembered not for victories or defeats in battle or in politics, but for our contribution to the human spirit."',"author":"John F. Kennedy"},
+        {"body":'"If you have only two pennies, spend the first on bread and the other on hyacinths for your soul."',"author":"Arab Proverb"},
+        {"body":'"Life without industry is guilt; industry without art is brutality."',"author":"John Rushkin"},
+    ];
+    let index = Math.floor(Math.random()*5);
+    quoteBody.innerText = quotes[index].body;
+    quoteAuthor.innerText = quotes[index].author;
+}
+//the above is for the home page

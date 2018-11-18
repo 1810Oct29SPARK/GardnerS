@@ -7,38 +7,42 @@
     <link rel="icon" type="image" href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Durer_Young_Hare.jpg"/>
     <script src="SparkProjectScript.js"></script>
 </head>
-<body>
+<body onload="quotePull()">
     <header><h1 class="header"><a href="SparkProjectHome.html">SBG's Art-Site</a></h1></header>
     <nav class="flexSemantic">
         <h2><a href="SparkProjectGallery.html">Gallery</a></h2>
         <h2><a href="SparkProjectSearch.html">Search</a></h2>
         <h2><a href="SparkProjectAcknowledgements.html">Acknowledgements</a></h2>
     </nav>
-    <div class="centerElement">
+    <div>
         <h1 class="header">The Importance Of Art</h1>
     </div>
-    <div class="centerElement">
+    <div id="whatIsArt">
         <!-- Paragraph about why art is important -->
-        <p></p>
+        <p>In order to correctly define art, it is necessary, first of all, to cease to consider it as a means to pleasure and to consider it as one of the conditions of human life. Viewing it in this way we cannot fail to observe that art is one of the means of intercourse between man and man.</p>
+        <p>Every work of art causes the receiver to enter into a certain kind of relationship both with him who produced, or is producing, the art, and with all those who, simultaneously, previously, or subsequently, receive the same artistic impression.</p>
+        <p>Speech, transmitting the thoughts and experiences of men, serves as a means of union among them, and art acts in a similar manner. The peculiarity of this latter means of intercourse, distinguishing it from intercourse by means of words, consists in this, that whereas by words a man transmits his thoughts to another, by means of art he transmits his feelings.</p>
+        <p>The activity of art is based on the fact that a man, receiving through his sense of hearing or sight another man’s expression of feeling, is capable of experiencing the emotion which moved the man who expressed it. To take the simplest example; one man laughs, and another who hears becomes merry; or a man weeps, and another who hears feels sorrow. A man is excited or irritated, and another man seeing him comes to a similar state of mind. By his movements or by the sounds of his voice, a man expresses courage and determination or sadness and calmness, and this state of mind passes on to others. A man suffers, expressing his sufferings by groans and spasms, and this suffering transmits itself to other people; a man expresses his feeling of admiration, devotion, fear, respect, or love to certain objects, persons, or phenomena, and others are infected by the same feelings of admiration, devotion, fear, respect, or love to the same objects, persons, and phenomena.</p>
+        <p>-Leo Tolstoy, <a href="http://www.denisdutton.com/tolstoy.htm" target="_blank"><em>What is Art?</em></a></p>
     </div>
-    <div class="centerElement">
+    <div class="flexBoxQuote">
         <!-- dynamic quote about art's importance -->
         <p id="quoteBody"></p>
-        <p id="quoteAuthor"></p>
+        <p id="quoteAuthor" class="largeText"></p>
     </div>
     <div class="center50">
         <!-- email sign up -->
         <p class="largeText">Learn more about art, artists, how art influences us, and other topics from the world of art by signing up for our weekly Email.</p>
-        <form method="POST" action="SparkProjectHome.html" onsubmit="signUp()">
+        <div>
             <fieldset>
                 <legend class="largeText">Mailing List Sign Up</legend>
-                <input type="text" name="Name" required placeholder="Full Name" autocomplete="off"/>
+                <input type="text" name="Name" required placeholder="Full Name" autocomplete="off" id="nameInput"/>
                 <br/>
-                <input type="email" name="E-Mail" required placeholder="E-Mail" autocomplete="off"/>
+                <input type="email" name="E-Mail" required placeholder="E-Mail" autocomplete="off" id="emailInput"/>
                 <br/>
-                <input type="submit" id="submitInput"/>
+                <input type="submit" onclick="signUp()"/>
             </fieldset>
-        </form>
+        </div>
         <div id="panel" class="center50">
             <!-- SignUp-->
         </div>
