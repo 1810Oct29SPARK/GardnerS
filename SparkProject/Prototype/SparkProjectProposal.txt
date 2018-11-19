@@ -1,0 +1,67 @@
+Stewart Gardner
+
+Spark Project Proposal
+
+Theme:
+    Famous Painters
+
+API:
+    Wikipedia
+
+Example:
+    https://en.wikipedia.org/w/api.php?action=query&format=json&prop=categories%7Cimages&titles=Caravaggio
+    This will grab the JSON of Carvaggio. It also shows links to images within the article and the catagories it belongs to.
+    The Categories thing is because I want to use other Renaissance painters and randomly select them.
+
+Use Cases:
+x    You can sign up for an email about painters.
+x    You can search for different painters and view their art.
+-    You can select a random painter and have their art show up.
+-    You can look at paintings by century or decade or something.
+?    You can login and then have a history of the paintings you like.
+?    You can like paintings.
+x    You can view history of the painter.
+-    You can view history of the time the painting was made in.
+x    You can click a link to a printshop website.
+?    What art style it came from.
+-    How the painting was accomplished.
+
+API endpoints:
+    https://commons.wikimedia.org/wiki/Special:FilePath/ + "file-name" to get back images.
+    https://en.wikipedia.org/w/api.php?action=query&format=json&prop=images%7Cextracts&titles=Fan_Kuan&exchars=1000&exintro=1
+        What about if people fuck up the name and put a typo in? I don't know how to do that.
+        In order to remove pronunciation stuffs I should get rid of information between (parentheses).
+    Instead I'll make sure that the home page is populated from a list of default artists. They'll be randomly selected. Like 20 artists.
+    https://www.allposters.com/gallery?txtSearch=The+Musicians
+    This is the website for checking your prints.
+    artsy API will give me more functionality.
+        it has pics and similar artists, something wiki cant give me.
+    https://developers.artsy.net/start?id=5be440517bd621002be6eaac
+    https://api.artsy.net/api/artists/patrick-nagel
+    from the data above grab "image", image will need you to pass in a value from image_version.
+    I prefer Large.
+
+    som stuff to consider
+    onpageload generate artist. if it fails have some saved stuff i like.
+    header and search bar that go away on scroll but a persistent nav bar.
+    footer links to stuff.
+    4 pages eh home explore artists acknowledgements something else.
+    home page has a link to sign up for a weekly email about some artist.
+    format, flexbox of art and artist info so it can be big or small.
+    artist name
+    artist description
+    additional links
+
+    question, function vs local scope.   
+    fucntiopn scope vs local
+    local language dependent
+    method scope
+    java is only single quotes
+
+    problems, can't have impracise entries in search
+    can't figure out good other pages,
+    I have two pages of nothingness.
+    sanitizing user input
+    invalid name for them.
+    make it look nice when an error occurs.
+    
