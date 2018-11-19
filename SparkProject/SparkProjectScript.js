@@ -281,3 +281,39 @@ function quotePull(){
     quoteAuthor.innerText = quotes[index].author;
 }
 //the above is for the home page
+//the below is for the links page
+const museumEndPoint = "https://data.imls.gov/resource/et8i-mnha.json?$where=within_circle(location_1,";
+const range = ",8000)";
+var lat; var lon;
+function geoLocate(){
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            function(position){
+                lat = position.coords.latitude.toFixed(2);
+                lon = position.coords.longitude.toFixed(2);
+            }
+        )
+    }
+}
+function museumPull(){
+    let museumStuff = document.getElementById("museumStuff");
+    fetch(museumEndPoint+lat+","+lon+range, {
+        method:"GET",
+        token:"I0FPho2pF7DwBbBxsYDvN2OIR"
+    })
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        museumStuff.innerText = "";
+        for(let i=0;i<data.length;i++){
+            let para = document.createElement("p");
+            para.innerText = data[i].commonname;
+            museumStuff.appendChild(para);
+        }
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+}
+//the above is for the links page

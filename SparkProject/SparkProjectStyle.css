@@ -107,7 +107,7 @@ fieldset input {
     width:80%;
     margin:30px auto 60px;
 }
-#linksDiv > p {
+#linksDiv * {
     text-align:center;
 }
 /* font-family: 'Anonymous Pro', monospace;
