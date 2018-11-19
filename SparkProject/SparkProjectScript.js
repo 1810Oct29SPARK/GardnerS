@@ -193,6 +193,8 @@ function artsyCall(artist){
         otherArtsyCall(similarArtists);
     })
     .catch(function(error){
+        let artsyLink = document.getElementById("artsyLink");
+        artsyLink.innerHTML = "";
         console.log(error);
     })
 }
