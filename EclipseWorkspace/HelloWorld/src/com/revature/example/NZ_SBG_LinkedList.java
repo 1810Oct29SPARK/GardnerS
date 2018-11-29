@@ -22,7 +22,6 @@ public class NZ_SBG_LinkedList {
  *General Description
  *	Linked Lists are real similar to the arrays in Javascript.
  *	You have similar methods, you can have duplicates and empty values.
- *  It's Indexed, and asynchronous
-   
+ *  It's Indexed, kinda, more like ordered, and not synchronized. 
  * 
 */
