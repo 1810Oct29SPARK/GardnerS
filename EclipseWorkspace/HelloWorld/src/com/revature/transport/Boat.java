@@ -4,6 +4,7 @@ public class Boat extends Vehicle implements Steerable{
 	
 	protected String color;
 	protected double hullLength;
+	protected boolean hasHoleInHull;
 	
 	public Boat() {
 		super();
@@ -39,7 +40,10 @@ public class Boat extends Vehicle implements Steerable{
 	}
 
 	@Override
-	public void move() {
+	public void move() throws MaintenanceException {
+		if (this.hasHoleInHull) {
+			throw new MaintenanceException("Boat'll flood.");
+		}
 		System.out.println("Boat");
 	}
 
@@ -53,5 +57,13 @@ public class Boat extends Vehicle implements Steerable{
 	public void turnRight() {
 		System.out.println("turned else");
 		
+	}
+
+	public boolean isHasHoleInHull() {
+		return hasHoleInHull;
+	}
+
+	public void setHasHoleInHull(boolean hasHoleInHull) {
+		this.hasHoleInHull = hasHoleInHull;
 	}
 }

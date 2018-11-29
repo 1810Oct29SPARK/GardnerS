@@ -13,5 +13,5 @@ public abstract class Vehicle {
 		System.out.println("Vehicle Constructor Called");
 	}
 
-	public abstract void move();
+	public abstract void move() throws MaintenanceException;
 }
