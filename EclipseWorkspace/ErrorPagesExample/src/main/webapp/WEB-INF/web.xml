@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>ErrorPagesExample</display-name>
+
+	<servlet>
+   		<servlet-name>ErrorHandler</servlet-name>
+   		<servlet-class>com.revature.example.ErrorHandler</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+   		<servlet-name>ErrorHandler</servlet-name>
+   		<url-pattern>/ErrorHandler</url-pattern>
+	</servlet-mapping>
+	
+	<error-page>
+   		<error-code>404</error-code>
+   		<location>/ErrorHandling.html</location>
+	</error-page>
+	
+	<error-page>
+   		<exception-type>java.lang.Throwable</exception-type >
+   		<location>/ErrorHandling.html</location>
+	</error-page>
+</web-app>
