@@ -27,7 +27,7 @@ hs_err_pid*
 
 ### Eclipse ###
 
-.properties
+connection.properties
 .metadata
 bin/
 tmp/
