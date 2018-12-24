@@ -10,8 +10,9 @@ import com.revature.dao.ManagerDAOImpl;
 public class Driver {
 
 	public static void main(String[] args) {
-//		EmployeeDAOImpl ed = new EmployeeDAOImpl();
-//		String[] results = ed.getUserInfo("SMARTERTHANTHEAVERAGEBEAR","PICNICBASKET");
+		EmployeeDAOImpl ed = new EmployeeDAOImpl();
+		String[] results = ed.getUserInfo("SMARTERTHANTHEAVERAGEBEAR","PICNICBASKET");
+		System.out.println(results);
 		//ed.setUserInfo("FIRSTNAME", "Grape", 4);
 		//ed.getUserReimbursements(2);
 //		List<Reimbursement> reimbursement = ed.getUserReimbursements(2);

@@ -19,10 +19,10 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	
 	@Override
 	public String[] getUserInfo(String username, String password) {
-		String[] userInfo = new String[5];
+		String[] userInfo = new String[6];
 		CallableStatement cs = null;
 		try(Connection con = ConnectionUtil.getConnection()){
-			String sql = "{call SPUSERVIEW(?,?,?,?,?,?,?)}";
+			String sql = "{call SPUSERVIEW(?,?,?,?,?,?,?,?)}";
 			//call my stored procedure, why a stored procedure?
 			//because i didn't feel confident in my sql knowledge beforehand
 			//and had to prove it to myself.
@@ -34,15 +34,18 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			cs.registerOutParameter(5,java.sql.Types.VARCHAR);
 			cs.registerOutParameter(6,java.sql.Types.VARCHAR);
 			cs.registerOutParameter(7,java.sql.Types.VARCHAR);
+			cs.registerOutParameter(8,java.sql.Types.VARCHAR);
 			cs.execute();
 			userInfo[0] = cs.getString(3);
 			userInfo[1] = cs.getString(4);
 			userInfo[2] = cs.getString(5);
 			userInfo[3] = cs.getString(6);
 			userInfo[4] = cs.getString(7);
+			userInfo[5] = cs.getString(8);
 			System.out.println(userInfo[4]);
 			System.out.println(userInfo[0]);
 			System.out.println(userInfo[2]);
+			System.out.println(userInfo[5]);
 		}
 		catch (SQLException e) {
 			e.printStackTrace();

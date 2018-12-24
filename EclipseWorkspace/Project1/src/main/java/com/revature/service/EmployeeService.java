@@ -25,7 +25,7 @@ public class EmployeeService {
 		//how to get these results passed into the constructor?
 		//thank you Jake.
 		//i needed to move my connection properties file
-		Employee emp = new Employee(results[0],results[1],results[2],results[3],results[4]);
+		Employee emp = new Employee(results[0],results[1],results[2],results[3],results[4],results[5]);
 		employeeList.add(emp);
 		String employeeString = "";
 		//String check = "";

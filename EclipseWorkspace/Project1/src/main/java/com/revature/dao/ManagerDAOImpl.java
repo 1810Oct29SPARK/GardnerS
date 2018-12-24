@@ -96,7 +96,7 @@ public class ManagerDAOImpl implements ManagerDAO {
 	public List<Employee> getEmployees(int userId) {
 		List<Employee> underlingEmployees = new ArrayList<Employee>();
 		try(Connection con = ConnectionUtil.getConnection()){
-			String sql = "SELECT EMPLOYEEID, FIRSTNAME, LASTNAME, EMAIL, PHONE FROM EMPLOYEE WHERE MANAGERID=?";
+			String sql = "SELECT EMPLOYEEID, FIRSTNAME, LASTNAME, EMAIL, PHONE, ISMANAGER FROM EMPLOYEE WHERE MANAGERID=?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, userId);
 			ResultSet rs = pstmt.executeQuery();
@@ -106,7 +106,8 @@ public class ManagerDAOImpl implements ManagerDAO {
 				String lastname = rs.getString("LASTNAME");
 				String email = rs.getString("EMAIL");
 				String phone = rs.getString("PHONE");
-				underlingEmployees.add(new Employee(firstname, lastname, email, phone, eId));
+				String manager = rs.getString("ISMANAGER");
+				underlingEmployees.add(new Employee(firstname, lastname, email, phone, eId, manager));
 			}
 		}
 		catch (SQLException e) {
