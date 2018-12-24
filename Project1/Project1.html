@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="Project1.css" />
+</head>
+<body>
+    <div id="displayed-content">
+        <!-- the below is for logging in -->
+        <div id="login-div" class="full-page">
+            <fieldset>
+                <legend class="largeText">Hanna-Barbera Login</legend>
+                <input type="text" name="username" required placeholder="User Name" autocomplete="off" id="usernameInput" value="NUMBERONESUPERGUY"/>
+                <br/>
+                <input type="password" name="password" required placeholder="Password" autocomplete="off" id="passwordInput" value="HONGKONGPHOOEYCHOP"/>
+                <br/>
+                <input type="submit" id="loginBtn"/> <!--Change this to the login function-->
+            </fieldset>
+        </div>
+        <div id="logout-div"class="hidden-start">Log-Out</div>
+        <!-- The below is for all employees -->
+        <div id="employee-div" class="hidden-start">
+            <div class="information" id="employee-info">
+                <div class="info-div info-firstname">
+                    <div class="info-val" id="firstname"></div>
+                    <input placeholder="Make changes here" id="firstToChange">
+                    <button class="info-btn">Click</button>
+                </div>
+                <div class="info-div info-lastname">
+                    <div class="info-val" id="lastname"></div>
+                    <input placeholder="Make changes here" id="lastToChange">
+                    <button class="info-btn">Click to change</button>
+                </div>
+                <div class="info-div info-email">
+                    <div class="info-val" id="email"></div>
+                    <input placeholder="Make changes here" id="phoneToChange">
+                    <button class="info-btn">Click to change</button>
+                </div>
+                <div class="info-div info-phone">
+                    <div class="info-val" id="phone"></div>
+                    <input placeholder="Make changes here" id="emailToChange">
+                    <button class="info-btn">Click to change</button>
+                </div>
+            </div>
+            <div class="new-reimbursement">
+                <h2>Submit a New Reimbursement</h2>
+                <div class="description" id="submit-description"><input placeholder="Description"></div>
+                <div class="amount" id="submit-amount"><input placeholder="Amount"></div>
+                <div id="sub-reimb">Submit Reimbursement</div>
+            </div>
+            <div class="reimbursement-list" id="my-reimb">
+                <h2>My Reimbursements</h2>
+            </div>
+
+        </div>
+        <!-- the below is only for managers -->
+        <div id="manager-div" class="hidden-start">
+            <div class="underlings">
+                <div id="show-under"></div>
+                <div id="under-list">
+
+                </div>
+            </div>
+            <div class="add-new-employee">
+                <input id="new-username" placeholder="New Username">
+                <input type="password" id="new-password" placeholder="New Password">
+                <div id="new-user-btn">Create New User</div>
+            </div>
+            <div class="underlings-reimbuserments">
+                <div id="show-under-reimbuserments"></div>
+                <div id="under-reimbursement-list">
+                    <!-- within here there will be 4 divs, the last of which will be a button that changes status of reimbursments -->
+                </div>
+            </div>
+            <div class="target-reimbuserments">
+                <input placeholder="Search By EmployeeId" id="target">
+                <div id="show-target-reimbuserments">Search By EmployeeId</div>
+                <div id="target-reimbursement-list">
+                    <!-- within here there will be 4 divs, the last of which will be a button that changes status of reimbursments -->
+                </div>
+            </div>
+
+        </div>
+        <!-- the below is only for the big boss -->
+        <!-- I'm scrapping this for now. -->
+        <div style="display:none">
+            <div class="information">
+                <div class="info-firstname">
+                    <div class="firstname"></div>
+                    <button class="info-btn"></button>
+                </div>
+                <div class="info-lastname">
+                    <div class="lastname"></div>
+                    <button class="info-btn"></button>
+                </div>
+                <div class="info-email">
+                    <div class="email"></div>
+                    <button class="info-btn"></button>
+                </div>
+                <div class="info-phone">
+                    <div class="phone"></div>
+                    <button class="info-btn"></button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="Project1.js"></script>
+</body>
+</html>
