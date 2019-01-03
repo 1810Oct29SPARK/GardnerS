@@ -37,4 +37,14 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AquaServlet</display-name>
+    <servlet-name>AquaServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AquaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AquaServlet</servlet-name>
+    <url-pattern>/AquaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
